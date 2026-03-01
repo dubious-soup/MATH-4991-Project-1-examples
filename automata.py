@@ -71,7 +71,6 @@ class FST:
         else:
             if len(string) == 0:
                 if state in self.final_states:
-                    print("accepted string!!")
                     return {('e',)}
                 else:
                     return set()
@@ -86,7 +85,6 @@ class FST:
                     translated_end = deque(list(translated_end))
                     translated_end.appendleft(new_state[0])
                     new_translated_ends.add(tuple(translated_end))
-        print(e_new_translated_ends|new_translated_ends)
         return e_new_translated_ends|new_translated_ends
 
     def validate_path(self, string, state):
